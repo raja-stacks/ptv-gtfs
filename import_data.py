@@ -17,7 +17,7 @@ import pandas as pd
 import plotly as pl
 import seaborn as sb
 
-dataLocation = 'E:\\Projects\\ptv-gtfs\\data'
+dataLocation = 'D:\\Projects\\ptv-gtfs\\data'
 
 # Prepare mapping table for transport mode type (based on PTV release notes)
  modeType = {
@@ -75,7 +75,6 @@ for i in [1,2,3,4,5,6,7,8,10,11]:
     trips[str(id)] = pd.read_csv(dataLocationMode + '/' + 'trips.txt').assign(id = i, modeType = modeType)
 
 
-i = 1
 
 ###########################################
 # 02. Wrangle Data
