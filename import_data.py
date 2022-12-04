@@ -85,7 +85,9 @@ for i in [1,2,3,4,5,6,7,8,10,11]:
 ###########################################
 # 03. Plot Data
 ###########################################
-
+import warnings; warnings.filterwarnings(action='ignore')
+from matplotlib import pyplot as plt
+import geopandas as gpd
 
 
 
@@ -93,8 +95,12 @@ for i in [1,2,3,4,5,6,7,8,10,11]:
 
 
 
+df_upfield = {}
+df_upfield_routes = routes['2'][routes['2'].route_short_name == 'Upfield']
+df_trips = trips['2']
 
-
+df_upfield_joined = df_upfield_routes.merge(df_trips, on='route_id', how='left')
+df_upfield_joined.to_csv('D:\\Projects\\ptv-gtfs\\data\\2\\df_upfield_joined.csv')
 
 
 
