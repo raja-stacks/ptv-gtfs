@@ -20,7 +20,7 @@ import seaborn as sb
 dataLocation = 'D:\\Projects\\ptv-gtfs\\data'
 
 # Prepare mapping table for transport mode type (based on PTV release notes)
- modeType = {
+modeType = {
      'id': [1,2,3,4,5,6,7,8,10,11],
     'modeType': [
     'Regional Train',
@@ -88,6 +88,13 @@ for i in [1,2,3,4,5,6,7,8,10,11]:
 import warnings; warnings.filterwarnings(action='ignore')
 from matplotlib import pyplot as plt
 import geopandas as gpd
+
+shapes_shp = gpd.read_file('D:\\Projects\\ptv-gtfs\\data\\2\\ll_gda2020\\esrishape\\whole_of_dataset\\victoria\\PTV\\PTV_TRAIN_TRACK_CENTRELINE.shp')
+
+shapes_upfield = shapes_shp.query('(FAC_NAME == "Southern Cross-Upfield") or (FAC_NAME == "North Melbourne-Upfield")')
+
+
+
 
 
 
